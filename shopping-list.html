@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="itemID">
+      <button id="addBtn">Add item</button>
+    </div>
+
+    <ul id="itemsList">
+
+    </ul>
+
+    <script>
+      const listContainer = document.querySelector('#itemsList');
+      const addBtn = document.querySelector('#addBtn');
+      const item = document.querySelector('#itemID');
+      
+      let i1 = 1;
+      
+
+
+      function createElement (i){
+        const listElement = document.createElement('li');
+        const deleteItemBtn = document.createElement('button');
+        const itemToAdd = item.value;
+        console.log('itemToAdd: ', itemToAdd);
+  
+
+        console.log("Log 2 i: ",i, " item; ", itemToAdd);
+
+        listElement.textContent =  String(itemToAdd);
+        listElement.setAttribute('id','item' + i);
+
+        deleteItemBtn.textContent = "Delete";
+        deleteItemBtn.setAttribute('id','delete' + i);
+        
+        
+        listElement.appendChild(deleteItemBtn);
+
+        listContainer.appendChild(listElement);
+
+        item.value = "";
+        item.focus();
+
+        i1++;
+        
+
+      };
+
+
+      
+
+      addBtn.onclick = () => createElement(i1);
+      console.log("Log 1 i: " , i1, " item: ", itemToAdd);
+
+    </script>
+  </body>
+</html>
