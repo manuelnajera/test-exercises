@@ -32,6 +32,7 @@
 
     <script>
       const listContainer = document.querySelector('#itemsList');
+      const deleteButtons = listContainer.querySelectorAll('button');
       const addBtn = document.querySelector('#addBtn');
       const item = document.querySelector('#itemID');
       
@@ -60,6 +61,8 @@
 
         listContainer.appendChild(listElement);
 
+        deleteItemBtn.onclick = () => deleteItemBtn.parentElement.remove();
+
         item.value = "";
         item.focus();
 
@@ -72,6 +75,19 @@
       
 
       addBtn.onclick = () => createElement(i1);
+
+     /* deleteButtons.forEach((button) => {
+
+        button.addEventListener( 'click', () => {
+          alert("Delete pressed on " + button.id)
+          button.parentElement.remove();
+
+        })
+
+      });
+    */
+
+
       console.log("Log 1 i: " , i1, " item: ", itemToAdd);
 
     </script>
